@@ -1,4 +1,4 @@
-import { useGetPokemonByNameQuery } from "../services/pokemon";
+import { useGetPokemonByNameQuery } from "@/services/pokemon";
 
 const Pokemon = ({ name, pollingInterval }) => {
   const { data, error, isLoading, isFetching } = useGetPokemonByNameQuery(
@@ -15,7 +15,14 @@ const Pokemon = ({ name, pollingInterval }) => {
       ) : isLoading ? (
         <>Loading...</>
       ) : data ? (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
           <h3>
             {data.species.name} {isFetching ? "..." : ""}
           </h3>
